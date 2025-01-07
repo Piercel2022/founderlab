@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mentor: one
+  user: one
+  date: 2025-01-07 20:12:13
+  status: MyString
+  notes: MyText
+  meeting_type: MyString
+
+two:
+  mentor: two
+  user: two
+  date: 2025-01-07 20:12:13
+  status: MyString
+  notes: MyText
+  meeting_type: MyString
