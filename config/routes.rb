@@ -1,8 +1,6 @@
 
   # config/routes.rb
   Rails.application.routes.draw do
-    get "market_research/index"
-    get "market_research/show"
 
 
   # Root route
