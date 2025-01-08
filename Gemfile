@@ -39,6 +39,7 @@ gem "kamal", require: false
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
+gem 'font-awesome-sass', '~> 6.1.0'
 
 gem "devise" # Authentication
 gem "pundit" # Authorization

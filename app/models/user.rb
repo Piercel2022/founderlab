@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :subscriptions
   has_many :meetings
   has_many :posts
-  
+  has_one_attached :avatar
+  validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: { less_than: 5.megabytes }
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true
   validates :role, inclusion: { in: %w[founder mentor investor admin] }
