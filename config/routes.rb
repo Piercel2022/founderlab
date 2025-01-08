@@ -1,6 +1,8 @@
 
   # config/routes.rb
   Rails.application.routes.draw do
+
+
   # Root route
   root 'home#index'
 
