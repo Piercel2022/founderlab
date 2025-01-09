@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_08_203753) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_09_045351) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -91,6 +91,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_08_203753) do
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0, null: false
     t.index ["user_id"], name: "index_mentors_on_user_id"
   end
 
@@ -114,6 +115,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_08_203753) do
     t.string "revenue_model"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "featured", default: false
+    t.boolean "success_story", default: false
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -139,6 +142,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_08_203753) do
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
+  create_table "success_stories", force: :cascade do |t|
+    t.string "title"
+    t.string "founder_name"
+    t.string "founder_avatar"
+    t.string "company_name"
+    t.string "industry"
+    t.text "summary"
+    t.string "funding_raised"
+    t.integer "team_size"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -156,6 +173,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_08_203753) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
+    t.integer "status", default: 0, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
