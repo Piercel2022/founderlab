@@ -1,0 +1,14 @@
+<div class="resource-card">
+  <div class="resource-type">
+    <i class="fas <%= resource_icon(resource.category) %>"></i>
+  </div>
+  <div class="resource-content">
+    <h3><%= resource.title %></h3>
+    <p class="resource-description"><%= truncate(resource.description, length: 80) %></p>
+    <div class="resource-meta">
+      <span class="category"><%= resource.category %></span>
+      <span class="access-level"><%= resource.access_level %></span>
+    </div>
+    <%= link_to "Access Resource", resource_path(resource), class: "resource-link" %>
+  </div>
+</div>
