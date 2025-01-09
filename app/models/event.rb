@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   
   enum category: { workshop: 0, networking: 1, pitch: 2, conference: 3 }
   
-  scope :upcoming, -> { where('date > ?', Time.current) }
+
   scope :available, -> { where('capacity > 0') }
+  scope :upcoming, -> { where('date > ?', Time.current).order(date: :asc) }
 end
