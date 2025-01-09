@@ -6,4 +6,6 @@ class Resource < ApplicationRecord
   
   enum access_level: { free: 0, premium: 1, enterprise: 2 }
   enum category: { document: 0, video: 1, template: 2, tool: 3 }
+  
+  scope :latest, -> { order(created_at: :desc) }
 end
