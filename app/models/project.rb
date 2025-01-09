@@ -8,7 +8,7 @@ class Project < ApplicationRecord
   validates :name, presence: true
   validates :status, presence: true
   
-  enum status: { draft: 0, active: 1, completed: 2, archived: 3 }
+  #enum status: { draft: 0, active: 1, completed: 2, archived: 3 }
   
   scope :active_projects, -> { where(status: :active) }
   scope :featured, -> { where(featured: true).order(created_at: :desc) }
