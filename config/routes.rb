@@ -2,7 +2,7 @@
   # config/routes.rb
   Rails.application.routes.draw do
 
-    
+
     scope :home do
       get :index, to: 'home#index'
       get :about, to: 'home#about'
