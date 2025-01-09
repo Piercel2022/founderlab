@@ -1,0 +1,80 @@
+<div class="story-card" data-story-id="<%= story.id %>">
+  <div class="story-image">
+    <% if story.image_url.present? %>
+      <%= image_tag story.image_url, alt: "#{story.company_name} image", loading: "lazy" %>
+    <% else %>
+      <div class="placeholder-image">
+        <%= story.company_name.first %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="story-content">
+    <div class="story-header">
+      <h3 class="story-title"><%= story.title %></h3>
+      
+      <div class="founder-info">
+        <% if story.founder_avatar.present? %>
+          <%= image_tag story.founder_avatar, class: "founder-avatar", alt: "#{story.founder_name}'s avatar", loading: "lazy" %>
+        <% else %>
+          <div class="founder-avatar-placeholder">
+            <%= story.founder_name.split.map(&:first).join %>
+          </div>
+        <% end %>
+        <div class="founder-details">
+          <span class="founder-name"><%= story.founder_name %></span>
+          <span class="company-name"><%= story.company_name %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-tags">
+      <span class="industry-tag">
+        <%= icon('briefcase', class: 'icon') %>
+        <%= story.industry %>
+      </span>
+    </div>
+
+    <p class="story-summary"><%= truncate(story.summary, length: 160, separator: ' ') %></p>
+
+    <div class="story-metrics">
+      <div class="metric funding">
+        <%= icon('dollar-sign', class: 'icon') %>
+        <div class="metric-details">
+          <span class="metric-value"><%= story.funding_raised %></span>
+          <span class="metric-label">Funding Raised</span>
+        </div>
+      </div>
+
+      <div class="metric team">
+        <%= icon('users', class: 'icon') %>
+        <div class="metric-details">
+          <span class="metric-value"><%= pluralize(story.team_size, 'member') %></span>
+          <span class="metric-label">Team Size</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-actions">
+      <%= link_to success_story_path(story), class: "read-more-btn" do %>
+        Read Full Story
+        <%= icon('arrow-right', class: 'icon') %>
+      <% end %>
+      
+      <% if current_user&.admin? %>
+        <div class="admin-actions">
+          <%= link_to edit_success_story_path(story), class: "edit-btn" do %>
+            <%= icon('edit', class: 'icon') %>
+          <% end %>
+          
+          <%= button_to success_story_path(story), 
+              method: :delete,
+              class: "delete-btn",
+              data: { confirm: "Are you sure you want to remove this success story?" } do %>
+            <%= icon('trash-2', class: 'icon') %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
