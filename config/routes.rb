@@ -1,11 +1,15 @@
 
   # config/routes.rb
   Rails.application.routes.draw do
-  
 
-
-  # Root route
-  root 'home#index'
+    
+    scope :home do
+      get :index, to: 'home#index'
+      get :about, to: 'home#about'
+      get :contact, to: 'home#contact'
+    end
+    root 'home#index'
+    
 
   # Authentication routes
   devise_for :users, controllers: {
