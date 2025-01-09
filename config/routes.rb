@@ -1,7 +1,7 @@
 
   # config/routes.rb
   Rails.application.routes.draw do
-    get "metrics/index"
+  
 
 
   # Root route
