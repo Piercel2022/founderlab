@@ -7,9 +7,9 @@ class HomeController < ApplicationController
     @active_mentors = Mentor.active.limit(4)
     
     # Statistics for dashboard
-    @total_founders = User.founders.count
-    @total_projects = Project.active.count
-    @total_investments = Investment.total_amount
+    #@total_founders = User.founders.count
+    #@total_projects = Project.active.count
+    #@total_investments = Investment.total_amount
     @successful_exits = Project.successful_exits.count
   end
 end
