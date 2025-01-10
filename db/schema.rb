@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_09_045351) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_10_031843) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -56,6 +56,28 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_09_045351) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "investments", force: :cascade do |t|
+    t.bigint "startup_id", null: false
+    t.decimal "amount"
+    t.date "investment_date"
+    t.string "investment_type"
+    t.string "investor_name"
+    t.string "investment_round"
+    t.decimal "equity_percentage", precision: 10, scale: 2
+    t.decimal "valuation_at_investment", precision: 10, scale: 2
+    t.text "investment_terms"
+    t.integer "board_seats"
+    t.string "due_diligence_status"
+    t.string "documents_url"
+    t.boolean "lead_investor"
+    t.boolean "follow_on_investment"
+    t.text "notes"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["startup_id"], name: "index_investments_on_startup_id"
   end
 
   create_table "market_researches", force: :cascade do |t|
@@ -130,6 +152,31 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_09_045351) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "startups", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.date "founded_date"
+    t.string "website"
+    t.string "industry"
+    t.integer "company_size"
+    t.string "stage"
+    t.decimal "total_funding", precision: 10, scale: 2
+    t.string "headquarters"
+    t.string "founders"
+    t.string "logo_url"
+    t.string "status"
+    t.string "pitch_deck_url"
+    t.decimal "valuation", precision: 10, scale: 2
+    t.decimal "revenue", precision: 10, scale: 2
+    t.integer "employee_count"
+    t.string "business_model"
+    t.string "target_market"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_startups_on_slug", unique: true
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "plan_type"
@@ -181,6 +228,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_09_045351) do
 
   add_foreign_key "analytics_reports", "projects"
   add_foreign_key "development_projects", "projects"
+  add_foreign_key "investments", "startups"
   add_foreign_key "market_researches", "projects"
   add_foreign_key "meetings", "mentors"
   add_foreign_key "meetings", "users"

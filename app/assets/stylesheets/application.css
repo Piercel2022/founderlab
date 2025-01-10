@@ -10,23 +10,23 @@
  */
 
 
-@import "app/assets/stylesheets/config/variables";
+@import "config/variables";
 
 
-@import "app/assets/stylesheets/components/base/reset";
-@import "app/assets/stylesheets/components/base/typography";
+@import "base/reset";
+@import "base/typography";
 
 
-@import "app/assets/stylesheets/components/cards";
-@import "app/assets/stylesheets/components/buttons";
-@import "app/assets/stylesheets/components/success_stories";
+@import "components/cards";
+
+@import "components/success_stories";
 
 
-@import "app/assets/stylesheets/pages/home";
+@import "components/home";
 
 
-@import "app/assets/components/home";
 
 
-@import "app/assets/stylesheets/components/base/layout";
-@import "app/assets/stylesheets/components/base/animations";
+
+@import "base/layout";
+@import "base/animations";
