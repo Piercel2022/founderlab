@@ -1,0 +1,48 @@
+// Base layout styles
+.container {
+    width: 100%;
+    max-width: $large-desktop;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -#{$spacing-unit};
+  }
+  
+  .col {
+    flex: 1;
+    padding: 0 $spacing-unit;
+  }
+  
+  // Responsive breakpoints
+  @media (max-width: $mobile) {
+    .col {
+      flex: 0 0 100%;
+    }
+  }
+  
+  // Spacing utilities
+  .m-0 { margin: 0; }
+  .mt-1 { margin-top: $spacing-unit; }
+  .mb-1 { margin-bottom: $spacing-unit; }
+  .ml-1 { margin-left: $spacing-unit; }
+  .mr-1 { margin-right: $spacing-unit; }
+  
+  .p-0 { padding: 0; }
+  .pt-1 { padding-top: $spacing-unit; }
+  .pb-1 { padding-bottom: $spacing-unit; }
+  .pl-1 { padding-left: $spacing-unit; }
+  .pr-1 { padding-right: $spacing-unit; }
+  
+  // Display utilities
+  .d-flex { display: flex; }
+  .d-none { display: none; }
+  .d-block { display: block; }
+  
+  .flex-wrap { flex-wrap: wrap; }
+  .justify-content-between { justify-content: space-between; }
+  .align-items-center { align-items: center; }
+  
