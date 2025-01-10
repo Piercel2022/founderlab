@@ -15,6 +15,11 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :role, inclusion: { in: %w[founder mentor investor admin] }
   
+  scope :founders, -> { where(role: 'founder') }
+  scope :investors, -> { where(role: 'investor') }
+  scope :active, -> { where(status: 'active') }
+  scope :created_this_month, -> { where(created_at: Time.current.beginning_of_month..Time.current.end_of_month) }
+  
   #enum status: { active: 0, inactive: 1, suspended: 2 }
   
 end
