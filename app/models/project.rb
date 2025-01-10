@@ -14,4 +14,7 @@ class Project < ApplicationRecord
   scope :featured, -> { where(featured: true).order(created_at: :desc) }
   scope :success_stories, -> { where(success_story: true).order(created_at: :desc) }
   scope :successful_exits, -> { where(status: 'exited') }
+
+  scope :active, -> { where(status: 'active') }
+  scope :featured, -> { where(featured: true) }
 end
