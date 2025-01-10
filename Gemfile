@@ -48,7 +48,7 @@ gem "pundit" # Authorization
 gem "sidekiq" # Background jobs
 gem "stripe" # Payment processing
 gem "aws-sdk-s3" # File storage
-gem "elasticsearch-model" # Search functionality
+#gem "elasticsearch-model" # Search functionality
 gem "paper_trail" # Version control
 gem "noticed" # Notifications
 gem "pagy" # Pagination
