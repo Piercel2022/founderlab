@@ -1,15 +1,6 @@
 
   # config/routes.rb
   Rails.application.routes.draw do
-    get "investments/index"
-    get "investments/show"
-    get "investments/new"
-    get "investments/create"
-    get "investments/edit"
-    get "investments/update"
-    get "investments/destroy"
-
-
     
     resources :startups do
       resources :investments

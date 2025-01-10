@@ -5,6 +5,7 @@ class InvestmentsController < ApplicationController
   def index
     @investments = @startup.investments
     @investments = @investments.by_type(params[:type]) if params[:type].present?
+    @total_investments = Investment.total_amount
     
     respond_to do |format|
       format.html

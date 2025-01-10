@@ -32,6 +32,8 @@ class Startup < ApplicationRecord
   scope :active, -> { where(status: 'active') }
   scope :by_industry, ->(industry) { where(industry: industry) }
   scope :by_stage, ->(stage) { where(stage: stage) }
+
+  scope :successful_exits, -> { where(status: ['acquired', 'ipo']) }
   
   private
 
