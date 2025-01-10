@@ -1,22 +1,26 @@
-@import "variables";
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-unit * 3;
+  padding: $container-padding;
+}
 
-.project-card,
-.event-card,
-.resource-card,
-.mentor-card {
+.card {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  
+  transition: transform 0.3s ease;
+
   &:hover {
     transform: translateY(-5px);
   }
 }
 
-// Project Card specific styles
+// Project Card
 .project-card {
+  @extend .card;
+  
   .project-image {
     height: 200px;
     overflow: hidden;
@@ -27,30 +31,82 @@
       object-fit: cover;
     }
   }
+
+  .project-content {
+    padding: $spacing-unit * 2;
+
+    h3 {
+      font-size: 1.25rem;
+      color: $text-color;
+      margin-bottom: $spacing-unit;
+    }
+
+    .project-description {
+      color: lighten($text-color, 20%);
+      margin-bottom: $spacing-unit * 2;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: $spacing-unit;
+      margin-bottom: $spacing-unit * 2;
+
+      span {
+        background: $light-gray;
+        padding: $spacing-unit/2 $spacing-unit;
+        border-radius: 4px;
+        font-size: 0.875rem;
+      }
+    }
+  }
 }
 
-// Event Card specific styles
+// Event Card
 .event-card {
+  @extend .card;
+  
   .event-date {
     background: $primary-color;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: $spacing-unit;
+
+    .day {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .month {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+    }
+  }
+
+  .event-content {
+    padding: $spacing-unit * 2;
   }
 }
 
-// Resource Card specific styles
+// Resource Card
 .resource-card {
+  @extend .card;
+  
   .resource-type {
     font-size: 2rem;
     color: $primary-color;
     text-align: center;
-    padding: 20px 0;
+    padding: $spacing-unit * 2 0;
+  }
+
+  .resource-content {
+    padding: $spacing-unit * 2;
   }
 }
 
-// Mentor Card specific styles
+// Mentor Card
 .mentor-card {
+  @extend .card;
+  
   .mentor-avatar {
     width: 100px;
     height: 100px;
@@ -64,5 +120,9 @@
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  .mentor-content {
+    padding: $spacing-unit * 2;
   }
 }
