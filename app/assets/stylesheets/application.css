@@ -8,4 +8,25 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
- @import "components/success_stories";
+
+
+@import "app/assets/stylesheets/config/variables";
+
+
+@import "app/assets/stylesheets/components/base/reset";
+@import "app/assets/stylesheets/components/base/typography";
+
+
+@import "app/assets/stylesheets/components/cards";
+@import "app/assets/stylesheets/components/buttons";
+@import "app/assets/stylesheets/components/success_stories";
+
+
+@import "app/assets/stylesheets/pages/home";
+
+
+@import "app/assets/components/home";
+
+
+@import "app/assets/stylesheets/components/base/layout";
+@import "app/assets/stylesheets/components/base/animations";
