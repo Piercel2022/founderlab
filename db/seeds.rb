@@ -208,6 +208,10 @@ SuccessStory.create([
     image_url: "path/to/company2.jpg"
   }
 ])
+Startup.where(location: "San Francisco").select(:id, :name, :location).each do |startup|
+  puts "Startup: #{startup.name}, Location: #{startup.location}"
+end
+
 
 puts "Seed completed successfully!"
 puts "Created:"
