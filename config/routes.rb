@@ -16,11 +16,13 @@
     
 
   # Authentication routes
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    passwords: 'users/passwords'
-  }
+  devise_for :users
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
+  
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 
   # User and Profile Management
   namespace :api do
