@@ -10,20 +10,20 @@ class Startup < ApplicationRecord
   validates :status, presence: true
   
   # Enums
-  enum stage: {
-    idea: 'idea',
-    mvp: 'mvp',
-    early_stage: 'early_stage',
-    growth: 'growth',
-    scale: 'scale'
-  }
+  #enum stage: {
+  #  idea: 'idea',
+  # mvp: 'mvp',
+  #  early_stage: 'early_stage',
+  #  growth: 'growth',
+  #  scale: 'scale'
+  #}
 
-  enum status: {
-    active: 'active',
-    inactive: 'inactive',
-    acquired: 'acquired',
-    closed: 'closed'
-  }
+  #enum status: {
+  # active: 'active',
+  #  inactive: 'inactive',
+  #  acquired: 'acquired',
+  #  closed: 'closed'
+  #}
 
   # Callbacks
   before_create :generate_slug
@@ -39,5 +39,9 @@ class Startup < ApplicationRecord
 
   def generate_slug
     self.slug = name.parameterize
+  end
+
+  def team_size
+    team_members.count # Assuming team_members is a related model
   end
 end

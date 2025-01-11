@@ -11,9 +11,11 @@ class User < ApplicationRecord
   has_many :posts
   has_one_attached :avatar
   #validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: { less_than: 5.megabytes }
-  validates :email, presence: true, uniqueness: true
-  validates :name, presence: true
-  validates :role, inclusion: { in: %w[founder mentor investor admin] }
+  #validates :email, presence: true, uniqueness: true
+  #validates :name, presence: true
+  #validates :role, inclusion: { in: %w[founder mentor investor admin] }
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
   
   scope :founders, -> { where(role: 'founder') }
   scope :investors, -> { where(role: 'investor') }
@@ -21,5 +23,9 @@ class User < ApplicationRecord
   scope :created_this_month, -> { where(created_at: Time.current.beginning_of_month..Time.current.end_of_month) }
   
   #enum status: { active: 0, inactive: 1, suspended: 2 }
+
+  def password_required?
+    new_record? || password.present?
+  end
   
 end
