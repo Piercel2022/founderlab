@@ -25,8 +25,8 @@ class HomeController < ApplicationController
     
     # Success metrics
     @successful_exits = Startup.successful_exits.count
-    @total_jobs_created = Startup.sum(:team_size)
-    
+    @total_jobs_created = Startup.all.sum(&:team_size)
+
     # Industry breakdown
     @industry_breakdown = Startup.group(:industry).count
     
@@ -34,7 +34,7 @@ class HomeController < ApplicationController
     @geographic_distribution = Startup.group(:location).count.sort_by { |_, v| -v }.first(10)
     
     # Latest activity
-    @recent_activities = Activity.includes(:user, :trackable).order(created_at: :desc).limit(10)
+    #@recent_activities = Activity.includes(:user, :trackable).order(created_at: :desc).limit(10)
     @successful_exits = Project.successful_exits.count
   end
 end
