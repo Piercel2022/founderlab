@@ -8,6 +8,20 @@ class UsersController < ApplicationController
     @users = policy_scope(User).includes(:projects, :mentorships).order(created_at: :desc).page(params[:page])
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: 'Account created successfully!'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def show
     @recent_activities = @user.activities.latest
     @completed_projects = @user.projects.completed
@@ -27,6 +41,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 
   def notify_profile_update
     UserMailer.profile_updated(@user).deliver_later
