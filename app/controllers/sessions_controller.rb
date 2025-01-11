@@ -9,9 +9,11 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email].downcase)
 
+
     if @user && @user.authenticate(params[:password])
       # Set session
       session[:user_id] = @user.id
+      redirect_to root_path, notice: 'Logged in successfully!'
       
       # Update last login timestamp
       @user.update_column(:last_login_at, Time.current)
