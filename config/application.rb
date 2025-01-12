@@ -16,9 +16,9 @@ module Founderlab
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
-    config.sass.preferred_syntax = :scss
-    config.sass.load_paths << "#{Rails.root}/app/assets/stylesheets"
-    config.assets.paths << Rails.root.join("app", "assets", "images")
+    #config.sass.preferred_syntax = :scss
+    #config.sass.load_paths << "#{Rails.root}/app/assets/stylesheets"
+    # config.assets.paths << Rails.root.join("app", "assets", "images")
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
