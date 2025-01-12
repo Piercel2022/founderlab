@@ -13,16 +13,20 @@
  @import "tailwindcss/components";
  @import "tailwindcss/utilities";
 
- @import "config/variables";
+ @import "../config/variables";
+ @import "../config/mixins";
 
 
- @import "assets/stylesheets/base/reset";
- @import "assets/styleheets/base/typography";
- @import "assets/stylesheets/base/animations";
- @import "assets/stylesheets/base/layout";
+ @import "base/reset";
+ @import "base/typography";
+ @import "base/animations";
+ @import "base/layout";
 
- @import "assets/stylesheets/components/cards";
- @import "assets/stylesheets/components/success_stories";
- @import "assets/stylesheets/components/home";
-
+ @import "components/cards";
+ @import "components/success_stories";
+ @import "components/home";
+ @import "components/buttons";
+ @import "components/forms";
+ @import "components/alerts";
+ @import "pages/auth";
 
