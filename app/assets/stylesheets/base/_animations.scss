@@ -1,24 +1,15 @@
-# app/assets/stylesheets/base/_animations.scss
+#app/assets/stylesheets/base/_animations.scss
 // Animation keyframes
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+//@keyframes fadeIn {
+ // from {
+  //  opacity: 0;
+ // }
+  //to {
+ //   opacity: 1;
+ // }
+//}
 
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+
 
 // Animation utility classes
 .animate-fade-in {
