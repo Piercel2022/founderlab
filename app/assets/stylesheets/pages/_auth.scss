@@ -1,0 +1,34 @@
+.auth {
+    &-container {
+      @apply min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8;
+    }
+  
+    &-card {
+      @include auth-card;
+    }
+  
+    &-header {
+      @apply text-center mb-8;
+    }
+  
+    &-title {
+      @apply text-2xl font-bold text-gray-800;
+    }
+  
+    &-subtitle {
+      @apply mt-2 text-sm text-gray-600;
+    }
+  
+    &-divider {
+      @apply my-6 flex items-center;
+      
+      &:before, &:after {
+        content: "";
+        @apply flex-1 border-t border-gray-200;
+      }
+      
+      span {
+        @apply px-3 text-sm text-gray-500;
+      }
+    }
+  }
