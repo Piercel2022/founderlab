@@ -1,4 +1,3 @@
-//= link_directory ../images
-//= link_directory ../builds
-//= link_directory ../stylesheets
-
+//= link_tree ../images
+//= link_directory ../stylesheets .css
+//= link_tree ../../javascript .js
