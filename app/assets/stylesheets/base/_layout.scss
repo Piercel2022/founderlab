@@ -3,13 +3,13 @@
     width: 100%;
     max-width: $large-desktop;
     margin: 0 auto;
-    padding: 0 $container-padding;
+  //  padding: 0 $container-padding;
   }
   
   .row {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -#{$spacing-unit};
+   margin: 0 -#{$spacing-unit};
   }
   
   .col {
@@ -29,7 +29,7 @@
   .mt-1 { margin-top: $spacing-unit; }
   .mb-1 { margin-bottom: $spacing-unit; }
   .ml-1 { margin-left: $spacing-unit; }
-  .mr-1 { margin-right: $spacing-unit; }
+   .mr-1 { margin-right: $spacing-unit; }
   
   .p-0 { padding: 0; }
   .pt-1 { padding-top: $spacing-unit; }
