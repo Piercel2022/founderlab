@@ -8,8 +8,9 @@
   <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    
+   <%= javascript_include_tag 'application.js' %>
+   <%= stylesheet_link_tag 'application.css' %>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
   </head>
 

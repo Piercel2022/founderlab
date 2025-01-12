@@ -1,7 +1,7 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: $spacing-unit * 3;
+ // gap: $spacing-unit * 3;
   padding: $container-padding;
 }
 
@@ -52,7 +52,7 @@
       margin-bottom: $spacing-unit * 2;
 
       span {
-        background: $light-gray;
+      //  background: $light-gray;
         padding: $spacing-unit/2 $spacing-unit;
         border-radius: 4px;
         font-size: 0.875rem;
@@ -66,7 +66,7 @@
   @extend .card;
   
   .event-date {
-    background: $primary-color;
+ //   background: $primary-color;
     color: white;
     text-align: center;
     padding: $spacing-unit;
@@ -93,7 +93,7 @@
   
   .resource-type {
     font-size: 2rem;
-    color: $primary-color;
+  //  color: $primary-color;
     text-align: center;
     padding: $spacing-unit * 2 0;
   }
