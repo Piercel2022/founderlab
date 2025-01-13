@@ -1,3 +1,6 @@
+
+@use "../../config/variables";
+
 .home-container {
     max-width: $large-desktop;
     margin: 0 auto;
@@ -5,8 +8,7 @@
   }
   
   .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                image-url('hero-bg.jpg');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), image-url("hero-bg.jpg");
     background-size: cover;
     color: white;
     text-align: center;
