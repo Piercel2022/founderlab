@@ -9,24 +9,28 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
- @import "tailwindcss/base";
- @import "tailwindcss/components";
- @import "tailwindcss/utilities";
+ @use "tailwindcss/base";
+ @use "tailwindcss/components";
+ @use "tailwindcss/utilities";
 
- @import "../config/variables";
- @import "../config/mixins";
+ @use "../config/variables";
+ @use "../config/mixins";
 
+// Base styles
+ @use "./base/reset";
+ @use "./base/typography";
+ @use "./base/animations";
+ @use "./base/layout";
 
- @import "base/reset";
- @import "base/typography";
- @import "base/animations";
- @import "base/layout";
+ // components
+ @use "./components/cards";
+ @use "./components/home";
+ @use "./components/buttons";
+ @use "./components/forms";
+ @use "./components/alerts";
+ 
 
- @import "components/cards";
- @import "components/success_stories";
- @import "components/home";
- @import "components/buttons";
- @import "components/forms";
- @import "components/alerts";
- @import "pages/auth";
-
+ // Pages
+ @use "./pages/auth";
+ @use "./pages/investments";
+ @use "./pages/success_stories";
