@@ -1,3 +1,12 @@
+@use "../../config/variables";
+
+$spacing-unit: 1rem;
+$container-padding: 2rem;
+$text-color: #374151;
+$light-gray: #f8f9fa;
+$primary-color: #007bff;
+
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -42,7 +51,7 @@
     }
 
     .project-description {
-      color: lighten($text-color, 20%);
+     // color: lighten($text-color, 20%);
       margin-bottom: $spacing-unit * 2;
     }
 
@@ -53,7 +62,7 @@
 
       span {
        background: $light-gray;
-        padding: $spacing-unit/2 $spacing-unit;
+       // padding: $spacing-unit/2 $spacing-unit;
         border-radius: 4px;
         font-size: 0.875rem;
       }
