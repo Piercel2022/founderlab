@@ -1,4 +1,58 @@
-<div>
-  <h1 class="font-bold text-4xl">Investments#index</h1>
-  <p>Find me in app/views/investments/index.html.erb</p>
+<div class="investments-container">
+  <div class="investments-header">
+    <h2>My Investments</h2>
+    <%= link_to "New Investment", new_investment_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="investments-filters">
+    <%= form_tag investments_path, method: :get, class: "filter-form" do %>
+      <div class="filter-group">
+        <%= label_tag :category, "Filter by Category" %>
+        <%= select_tag :category, 
+                      options_for_select(Investment::CATEGORIES, params[:category]),
+                      prompt: "All Categories",
+                      class: "form-control" %>
+      </div>
+      <%= submit_tag "Apply Filter", class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+
+  <div class="investments-list">
+    <% if @investments.any? %>
+      <table class="investments-table">
+        <thead>
+          <tr>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Start Date</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @investments.each do |investment| %>
+            <tr>
+              <td><%= number_to_currency(investment.amount) %></td>
+              <td><%= investment.category %></td>
+              <td><%= investment.start_date.strftime("%B %d, %Y") %></td>
+              <td><%= truncate(investment.description, length: 50) %></td>
+              <td class="actions">
+                <%= link_to "View", investment_path(investment), class: "btn btn-info btn-sm" %>
+                <%= link_to "Edit", edit_investment_path(investment), class: "btn btn-warning btn-sm" %>
+                <%= link_to "Delete", 
+                    investment_path(investment), 
+                    method: :delete,
+                    data: { confirm: "Are you sure?" },
+                    class: "btn btn-danger btn-sm" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="no-investments">
+        <p>No investments found. <%= link_to "Create your first investment", new_investment_path %>.</p>
+      </div>
+    <% end %>
+  </div>
 </div>
