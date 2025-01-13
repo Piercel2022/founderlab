@@ -1,4 +1,35 @@
-<div>
-  <h1 class="font-bold text-4xl">Investments#show</h1>
-  <p>Find me in app/views/investments/show.html.erb</p>
+<div class="investment-details-container">
+  <h2>Investment Details</h2>
+
+  <div class="investment-info">
+    <div class="info-group">
+      <label>Amount:</label>
+      <p><%= number_to_currency(@investment.amount) %></p>
+    </div>
+
+    <div class="info-group">
+      <label>Category:</label>
+      <p><%= @investment.category %></p>
+    </div>
+
+    <div class="info-group">
+      <label>Start Date:</label>
+      <p><%= @investment.start_date.strftime("%B %d, %Y") %></p>
+    </div>
+
+    <div class="info-group">
+      <label>Description:</label>
+      <p><%= @investment.description %></p>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <%= link_to "Edit", edit_investment_path(@investment), class: "btn btn-warning" %>
+    <%= link_to "Delete", 
+        investment_path(@investment),
+        method: :delete,
+        data: { confirm: "Are you sure you want to delete this investment?" },
+        class: "btn btn-danger" %>
+    <%= link_to "Back to All Investments", investments_path, class: "btn btn-secondary" %>
+  </div>
 </div>
