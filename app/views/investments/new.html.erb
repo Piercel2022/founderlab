@@ -1,4 +1,41 @@
-<div>
-  <h1 class="font-bold text-4xl">Investments#new</h1>
-  <p>Find me in app/views/investments/new.html.erb</p>
+<div class="investment-form-container">
+  <h2>New Investment</h2>
+
+  <%= form_for @investment, html: { class: "investment-form" } do |f| %>
+    <% if @investment.errors.any? %>
+      <div class="error-messages">
+        <h3><%= pluralize(@investment.errors.count, "error") %> prohibited this investment from being saved:</h3>
+        <ul>
+          <% @investment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :amount %>
+      <%= f.number_field :amount, class: "form-control", step: "0.01" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :category %>
+      <%= f.select :category, Investment::CATEGORIES, {}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Create Investment", class: "btn btn-primary" %>
+      <%= link_to "Cancel", investments_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
 </div>
