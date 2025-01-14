@@ -34,3 +34,7 @@
  @use "./pages/auth";
  @use "./pages/investments";
  @use "./pages/success_stories";
+
+ // Modules
+@use "./modules/signup";
+@use "./modules/login";
