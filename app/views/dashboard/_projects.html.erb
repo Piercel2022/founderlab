@@ -1,0 +1,108 @@
+<!-- app/views/dashboard/_projects.html.erb -->
+<div class="card">
+  <div class="card__header">
+    <h2 class="card__title">Projects Overview</h2>
+    <div class="card__actions">
+      <%= link_to new_project_path, class: "button button--primary" do %>
+        <i class="icon-plus"></i> New Project
+      <% end %>
+    </div>
+  </div>
+
+  <div class="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+    <% @recent_projects.each do |project| %>
+      <div class="project-card">
+        <div class="project-card__header">
+          <div class="project-card__status">
+            <span class="badge badge--<%= project.status %>">
+              <%= project.status.titleize %>
+            </span>
+          </div>
+          <div class="project-card__menu">
+            <button class="button button--icon" data-controller="dropdown">
+              <i class="icon-more-vertical"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="project-card__body">
+          <h3 class="project-card__title">
+            <%= link_to project.name, project_path(project) %>
+          </h3>
+          <p class="project-card__description">
+            <%= truncate(project.description, length: 100) %>
+          </p>
+        </div>
+
+        <div class="project-card__meta">
+          <div class="project-card__team">
+            <div class="avatar-group">
+              <% project.team_members.limit(3).each do |member| %>
+                <div class="avatar" title="<%= member.name %>">
+                  <% if member.avatar.attached? %>
+                    <%= image_tag member.avatar %>
+                  <% else %>
+                    <span class="avatar__initials">
+                      <%= member.initials %>
+                    </span>
+                  <% end %>
+                </div>
+              <% end %>
+              <% if project.team_members.count > 3 %>
+                <div class="avatar avatar--more">
+                  +<%= project.team_members.count - 3 %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="project-card__progress">
+            <div class="progress">
+              <div class="progress__bar" 
+                   style="width: <%= project.completion_percentage %>%"
+                   title="<%= project.completion_percentage %>% Complete">
+              </div>
+            </div>
+            <span class="progress__text">
+              <%= project.completion_percentage %>%
+            </span>
+          </div>
+        </div>
+
+        <div class="project-card__footer">
+          <div class="project-card__stats">
+            <div class="stat">
+              <i class="icon-task"></i>
+              <%= project.tasks.count %> tasks
+            </div>
+            <div class="stat">
+              <i class="icon-comment"></i>
+              <%= project.comments.count %> comments
+            </div>
+            <div class="stat">
+              <i class="icon-calendar"></i>
+              <%= project.due_date.strftime("%b %d") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @recent_projects.empty? %>
+    <div class="empty-state">
+      <div class="empty-state__icon">
+        <i class="icon-project"></i>
+      </div>
+      <h3 class="empty-state__title">No Projects Yet</h3>
+      <p class="empty-state__description">
+        Get started by creating your first project.
+      </p>
+      <%= link_to "Create Project", new_project_path, class: "button button--primary" %>
+    </div>
+  <% end %>
+
+  <div class="card__footer">
+    <%= link_to "View All Projects", projects_path, class: "button button--text" %>
+  </div>
+</div>

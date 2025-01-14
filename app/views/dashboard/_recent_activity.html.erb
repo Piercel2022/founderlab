@@ -1,0 +1,58 @@
+<!-- app/views/dashboard/_recent_activity.html.erb -->
+<div class="card mb-6">
+  <div class="card__header">
+    <h2 class="card__title">Recent Activity</h2>
+    <div class="card__actions">
+      <button class="button button--secondary" data-controller="activity-filter">
+        <i class="icon-filter"></i> Filter
+      </button>
+    </div>
+  </div>
+
+  <div class="activity-feed">
+    <% @recent_activities.each do |activity| %>
+      <div class="activity-feed__item">
+        <div class="activity-feed__icon">
+          <%= activity_icon(activity.action_type) %>
+        </div>
+        <div class="activity-feed__content">
+          <div class="activity-feed__title">
+            <%= activity_title(activity) %>
+          </div>
+          <div class="activity-feed__details">
+            <%= activity.description %>
+          </div>
+          <div class="activity-feed__meta">
+            <span class="activity-feed__timestamp">
+              <%= time_ago_in_words(activity.created_at) %> ago
+            </span>
+            <% if activity.location.present? %>
+              <span class="activity-feed__location">
+                <i class="icon-location"></i> <%= activity.location %>
+              </span>
+            <% end %>
+          </div>
+        </div>
+        <div class="activity-feed__actions">
+          <%= render "activities/actions", activity: activity %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @recent_activities.empty? %>
+    <div class="empty-state">
+      <div class="empty-state__icon">
+        <i class="icon-activity"></i>
+      </div>
+      <h3 class="empty-state__title">No Recent Activity</h3>
+      <p class="empty-state__description">
+        Activities will appear here as you interact with projects and team members.
+      </p>
+    </div>
+  <% end %>
+
+  <div class="card__footer">
+    <%= link_to "View All Activities", activities_path, class: "button button--text" %>
+  </div>
+</div>
