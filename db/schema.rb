@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_11_111847) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_14_164103) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -24,6 +24,27 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_11_111847) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_analytics_reports_on_project_id"
+  end
+
+  create_table "dashboard_metrics", force: :cascade do |t|
+    t.string "name"
+    t.integer "value"
+    t.string "category"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_dashboard_metrics_on_user_id"
+  end
+
+  create_table "dashboard_widgets", force: :cascade do |t|
+    t.string "name"
+    t.string "widget_type"
+    t.integer "position"
+    t.bigint "user_id", null: false
+    t.jsonb "settings"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_dashboard_widgets_on_user_id"
   end
 
   create_table "development_projects", force: :cascade do |t|
@@ -231,6 +252,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_11_111847) do
   end
 
   add_foreign_key "analytics_reports", "projects"
+  add_foreign_key "dashboard_metrics", "users"
+  add_foreign_key "dashboard_widgets", "users"
   add_foreign_key "development_projects", "projects"
   add_foreign_key "investments", "startups"
   add_foreign_key "market_researches", "projects"

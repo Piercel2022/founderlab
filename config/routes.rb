@@ -1,7 +1,35 @@
 
   # config/routes.rb
   Rails.application.routes.draw do
-    
+   # get "dashboard/index"
+   # get "dashboard/show"
+   # get "dashboard/analytics"
+   # get "dashboard/settings"
+   resources :dashboard do
+    collection do
+      get :analytics
+      get :customize
+      post :update_layout
+      get :export
+     end
+    end
+    #authenticate :user do
+     # get 'dashboard', to: 'dashboard#index'
+      # Add other authenticated routes
+    #end
+
+    authenticate :user do
+      get 'dashboard', to: 'dashboard#index'
+      
+      namespace :dashboard do
+        get 'analytics'
+        get 'settings'
+        patch 'update_settings'
+        patch 'update_widget_positions'
+        resources :widgets, only: [:show, :update, :destroy]
+      end
+    end
+
     resources :startups do
       resources :investments
     end

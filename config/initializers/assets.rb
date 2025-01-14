@@ -12,3 +12,9 @@ Rails.application.config.assets.paths << Rails.root.join("app/javascript")
 Rails.application.config.assets.paths << Rails.root.join("app/assets/builds")
 # Add the stylesheets directory to asset paths
 Rails.application.config.assets.paths << Rails.root.join("app/assets/stylesheets")
+
+Rails.application.config.assets.precompile += %w( 
+  application.css
+  themes/dark.css
+  themes/light.css
+)

@@ -24,6 +24,13 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt", "~> 3.1.7"
 
+
+gem "groupdate"  # For analytics date grouping
+gem "chartkick"  # For charts
+#gem 'axlsx'          # For Excel export
+gem "wicked_pdf"     # For PDF export
+#gem "redis"          # For real-time updates
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
