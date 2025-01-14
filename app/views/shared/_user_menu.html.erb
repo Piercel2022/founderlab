@@ -1,0 +1,15 @@
+<div class="flex items-center">
+  <div class="flex-shrink-0">
+    <% if current_user.avatar.attached? %>
+      <%= image_tag current_user.avatar, class: "h-10 w-10 rounded-full" %>
+    <% else %>
+      <span class="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">
+        <span class="text-gray-600 text-sm"><%= current_user.initials %></span>
+      </span>
+    <% end %>
+  </div>
+  <div class="ml-3">
+    <p class="text-sm font-medium text-gray-700"><%= current_user.name %></p>
+    <p class="text-xs font-medium text-gray-500"><%= current_user.role.titleize %></p>
+  </div>
+</div>
