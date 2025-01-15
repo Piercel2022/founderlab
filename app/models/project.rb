@@ -7,6 +7,8 @@ class Project < ApplicationRecord
   has_many :activities, as: :trackable
 
   
+  has_many :metrics
+  
   validates :name, presence: true
   validates :status, presence: true
   
