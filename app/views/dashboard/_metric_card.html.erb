@@ -1,0 +1,108 @@
+<div class="metrics-grid">
+  <div class="metric-card">
+    <div class="metric-header">
+      <h3>User Metrics</h3>
+      <span class="date"><%= @dashboard_data[:metrics].first.date.strftime("%B %Y") %></span>
+    </div>
+    <div class="metric-content">
+      <div class="metric-item">
+        <span class="label">Total Users</span>
+        <span class="value"><%= number_with_delimiter(@dashboard_data[:metrics].first.total_users) %></span>
+        <% if @dashboard_data[:metrics].first.user_growth_rate(@dashboard_data[:metrics].second) %>
+          <span class="growth <%= @dashboard_data[:metrics].first.user_growth_rate(@dashboard_data[:metrics].second) > 0 ? 'positive' : 'negative' %>">
+            <%= number_with_percentage(@dashboard_data[:metrics].first.user_growth_rate(@dashboard_data[:metrics].second), precision: 1) %>
+          </span>
+        <% end %>
+      </div>
+      <div class="metric-item">
+        <span class="label">Active Users</span>
+        <span class="value"><%= number_with_delimiter(@dashboard_data[:metrics].first.active_users) %></span>
+        <span class="subtext">
+          <%= number_to_percentage(@dashboard_data[:metrics].first.user_engagement_rate, precision: 1) %> engagement
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-header">
+      <h3>Financial Metrics</h3>
+    </div>
+    <div class="metric-content">
+      <div class="metric-item">
+        <span class="label">Monthly Revenue</span>
+        <span class="value"><%= number_to_currency(@dashboard_data[:metrics].first.revenue) %></span>
+        <% if @dashboard_data[:metrics].first.revenue_growth_rate(@dashboard_data[:metrics].second) %>
+          <span class="growth <%= @dashboard_data[:metrics].first.revenue_growth_rate(@dashboard_data[:metrics].second) > 0 ? 'positive' : 'negative' %>">
+            <%= number_with_percentage(@dashboard_data[:metrics].first.revenue_growth_rate(@dashboard_data[:metrics].second), precision: 1) %>
+          </span>
+        <% end %>
+      </div>
+      <div class="metric-item">
+        <span class="label">Burn Rate</span>
+        <span class="value"><%= number_to_currency(@dashboard_data[:metrics].first.burn_rate) %>/mo</span>
+        <span class="subtext">
+          <%= @dashboard_data[:metrics].first.runway_months %> months runway
+        </span>
+      </div>
+      <div class="metric-item">
+        <span class="label">Customer Acquisition Cost</span>
+        <span class="value"><%= number_to_currency(@dashboard_data[:metrics].first.customer_acquisition_cost) %></span>
+        <span class="subtext">
+          LTV: <%= number_to_currency(@dashboard_data[:metrics].first.lifetime_value) %>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-header">
+      <h3>Business Development</h3>
+    </div>
+    <div class="metric-content">
+      <div class="metric-item">
+        <span class="label">Funding Raised</span>
+        <span class="value"><%= number_to_currency(@dashboard_data[:metrics].first.funding_raised) %></span>
+      </div>
+      <div class="metric-item">
+        <span class="label">Key Activities</span>
+        <div class="activity-stats">
+          <div class="activity-item">
+            <span class="count"><%= @dashboard_data[:metrics].first.investor_meetings %></span>
+            <span class="label">Investor Meetings</span>
+          </div>
+          <div class="activity-item">
+            <span class="count"><%= @dashboard_data[:metrics].first.pilot_projects %></span>
+            <span class="label">Pilot Projects</span>
+          </div>
+          <div class="activity-item">
+            <span class="count"><%= @dashboard_data[:metrics].first.partnerships %></span>
+            <span class="label">Partnerships</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-header">
+      <h3>Growth Metrics</h3>
+    </div>
+    <div class="metric-content">
+      <div class="metric-item">
+        <span class="label">Website Traffic</span>
+        <span class="value"><%= number_with_delimiter(@dashboard_data[:metrics].first.website_visits) %></span>
+      </div>
+      <div class="metric-item">
+        <span class="label">Conversion Rate</span>
+        <span class="value"><%= number_to_percentage(@dashboard_data[:metrics].first.conversion_rate, precision: 1) %></span>
+      </div>
+      <div class="metric-item">
+        <span class="label">Churn Rate</span>
+        <span class="value <%= @dashboard_data[:metrics].first.churn_rate > 5 ? 'warning' : '' %>">
+          <%= number_to_percentage(@dashboard_data[:metrics].first.churn_rate, precision: 1) %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
