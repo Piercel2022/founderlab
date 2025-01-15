@@ -44,6 +44,6 @@ class User < ApplicationRecord
 
   def total_logins
     login_histories.count
-  endit a
+  end
   
 end
