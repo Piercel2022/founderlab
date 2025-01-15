@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   include RoleBasedDashboard
   include ActionCable::Channel::Broadcasting
   include LoginTracking
-  
+
   before_action :authenticate_user!
   before_action :set_dashboard_data
   before_action :authorize_dashboard_access
@@ -15,6 +15,14 @@ class DashboardController < ApplicationController
     @widgets = current_user.dashboard_widgets.ordered
     @metrics = load_role_based_metrics
     @recent_activities = fetch_activities
+
+    @dashboard_data = Rails.cache.fetch(cache_key, expires_in: 5.minutes) do
+      {
+        total_logins: current_user.total_logins,
+        recent_logins: current_user.login_histories.last(5),
+        metrics: fetch_filtered_metrics
+      }
+    end
     
     respond_to do |format|
       format.html
