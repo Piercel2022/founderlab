@@ -5,21 +5,15 @@
    # get "dashboard/show"
    # get "dashboard/analytics"
    # get "dashboard/settings"
-   resources :dashboard do
-    collection do
-      get :analytics
-      get :customize
-      post :update_layout
-      get :export
-     end
-    end
+   root 'home#index'
+  
     #authenticate :user do
      # get 'dashboard', to: 'dashboard#index'
       # Add other authenticated routes
     #end
 
     authenticate :user do
-      get 'dashboard', to: 'dashboard#index'
+      get 'dashboard/:id', to: 'dashboard#show', as: 'dashboard'
       
       namespace :dashboard do
         get 'analytics'
@@ -40,7 +34,7 @@
       get :about, to: 'home#about'
       get :contact, to: 'home#contact'
     end
-    root 'home#index'
+
     
 
   # Authentication routes
