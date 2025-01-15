@@ -72,6 +72,7 @@
 @use "./components/modal";
 @use "./components/table";
 
+@use "dashboard.scss"
 
 // 7. Themes
 @use "./themes/default";
