@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_14_164103) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_15_200231) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -138,6 +138,31 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_14_164103) do
     t.index ["user_id"], name: "index_mentors_on_user_id"
   end
 
+  create_table "metrics", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.date "date"
+    t.decimal "revenue", precision: 10, scale: 2
+    t.integer "total_users"
+    t.integer "active_users"
+    t.decimal "churn_rate", precision: 10, scale: 3
+    t.decimal "customer_acquisition_cost", precision: 10, scale: 4
+    t.decimal "lifetime_value", precision: 10, scale: 2
+    t.decimal "burn_rate", precision: 10, scale: 3
+    t.integer "runway_months"
+    t.decimal "funding_raised", precision: 10, scale: 2
+    t.integer "investor_meetings"
+    t.integer "pilot_projects"
+    t.integer "partnerships"
+    t.integer "team_size"
+    t.integer "website_visits"
+    t.decimal "conversion_rate", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_metrics_on_project_id"
+    t.index ["user_id"], name: "index_metrics_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.bigint "forum_id", null: false
     t.bigint "user_id", null: false
@@ -260,6 +285,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_14_164103) do
   add_foreign_key "meetings", "mentors"
   add_foreign_key "meetings", "users"
   add_foreign_key "mentors", "users"
+  add_foreign_key "metrics", "projects"
+  add_foreign_key "metrics", "users"
   add_foreign_key "posts", "forums"
   add_foreign_key "posts", "users"
   add_foreign_key "projects", "users"
