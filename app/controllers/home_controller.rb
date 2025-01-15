@@ -39,7 +39,7 @@ class HomeController < ApplicationController
     @geographic_distribution = Startup.group(:location).count.sort_by { |_, v| -v }.first(10)
     
     # Latest activity
-   @recent_activities = Activity.includes(:user, :trackable).order(created_at: :desc).limit(10)
+  # @recent_activities = Activity.includes(:user, :trackable).order(created_at: :desc).limit(10)
    @successful_exits = Project.successful_exits.count
   end
 end
