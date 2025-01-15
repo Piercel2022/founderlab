@@ -12,7 +12,8 @@ class User < ApplicationRecord
   has_many :dashboard_metrics
   has_many :dashboard_widgets
   has_many :activity_logs
-
+  has_many :login_histories
+  
   has_one_attached :avatar
   #validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: { less_than: 5.megabytes }
   #validates :email, presence: true, uniqueness: true
