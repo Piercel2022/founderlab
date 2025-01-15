@@ -41,5 +41,9 @@ class User < ApplicationRecord
       logged_at: Time.current
     )
   end
+
+  def total_logins
+    login_histories.count
+  end
   
 end
