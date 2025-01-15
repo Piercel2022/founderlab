@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
   include ExportableDashboard
   include RoleBasedDashboard
   include ActionCable::Channel::Broadcasting
+  include LoginTracking
   
   before_action :authenticate_user!
   before_action :set_dashboard_data
