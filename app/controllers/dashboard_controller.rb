@@ -106,6 +106,16 @@ class DashboardController < ApplicationController
                .count
   end
 
+  def fetch_filtered_metrics
+    metrics = Metric.all # Replace with your actual metrics model
+
+    metrics = metrics.where('created_at >= ?', params[:start_date]) if params[:start_date].present?
+    metrics = metrics.where('created_at <= ?', params[:end_date]) if params[:end_date].present?
+    metrics = metrics.where(status: params[:status]) if params[:status].present?
+    
+    metrics.limit(params[:limit] || 10)
+  end
+
   def fetch_investment_analytics
     current_user.investments
                .group_by_day(:created_at, range: @start_date..@end_date)
