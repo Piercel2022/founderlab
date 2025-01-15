@@ -15,7 +15,10 @@
 
  @use "../config/variables";
  @use "../config/mixins";
-
+// 1. Configuration and helpers
+//@import "abstracts/variables";
+.//@import "abstracts/functions";
+//@import "abstracts/mixins";
 // Base styles
  @use "./base/reset";
  @use "./base/typography";
@@ -34,7 +37,42 @@
  @use "./pages/auth";
  @use "./pages/investments";
  @use "./pages/success_stories";
-
+ @use "./pages/dashboard";
+ @use "./pages/profile";
+ @use "./pages/projects";
+ @use "./pages/resources";
  // Modules
-@use "./modules/signup";
-@use "./modules/login";
+ @use "./modules/signup";
+ @use "./modules/login";
+
+
+// 2. Vendors
+ @use "./vendors/normalize";
+
+// 3. Base stuff
+//@use "base/base";
+@use"./base/fonts";
+@use "./base/typography";
+@use "./base/helpers";
+
+// 4. Layout-related sections
+@use "./layout/header";
+@use "./layout/footer";
+@use "./layout/sidebar";
+@use "./layout/grid";
+@use "./layout/navigation";
+
+// 5. Components
+@use "./components/button";
+@use "./components/card";
+@use "./components/dropdown";
+@use "./components/form";
+@use "./components/alert";
+@use "./components/badge";
+@use "./components/modal";
+@use "./components/table";
+
+
+// 7. Themes
+@use "./themes/default";
+@use "./themes/dark";
