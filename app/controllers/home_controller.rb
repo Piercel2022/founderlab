@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   layout 'dashboard'
 
   def index
-    redirect_to dashboard_url if user_signed_in?
+    redirect_to dashboard_url(id: current_user.id) if user_signed_in?
   
    @featured_projects = Project.featured.limit(3)
    @upcoming_events = Event.upcoming.limit(4)
