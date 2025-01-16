@@ -67,6 +67,7 @@ gem "hotwire-rails"
 # Use sass for styles
 # gem "sass-rails"
 
+gem "activerecord-session_store"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

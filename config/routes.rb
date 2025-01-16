@@ -38,13 +38,36 @@
     
 
   # Authentication routes
-  devise_for :users
-  get 'signup', to: 'users#new'
-  post 'signup', to: 'users#create'
-  
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  # Devise routes with custom controllers and path names
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords',
+    confirmations: 'users/confirmations'
+  }, path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    sign_up: 'register'
+  }
+
+  authenticate :user do
+    # Dashboard routes
+    resources :dashboard, only: [:index]
+    
+    # Activity routes
+    resources :activities do
+      member do
+        post :like
+        post :comment
+      end
+    end
+
+    # Project routes
+    resources :projects do
+      resources :milestones
+      resources :updates, controller: 'project_updates'
+    end
+  end
 
   # User and Profile Management
   namespace :api do

@@ -12,7 +12,7 @@
 
 # Clear existing data
 puts "Cleaning database..."
-[User, Project, Event, Resource, Mentor, Meeting, Forum, Post, Subscription].each(&:destroy_all)
+#[User, Project, Event, Resource, Mentor, Meeting, Forum, Post, Subscription].each(&:destroy_all)
 
 # Create Admin
 puts "Creating admin user..."
