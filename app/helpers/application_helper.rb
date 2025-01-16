@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include ActionView::Helpers::NumberHelper
     def resource_icon(category)
       case category
       when 'document'
