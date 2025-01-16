@@ -1,0 +1,28 @@
+<div class="activity-actions">
+  <div class="activity-actions__primary">
+    <%= link_to like_activity_path(activity), method: :post, remote: true, class: "activity-action" do %>
+      <i class="far fa-heart"></i>
+      <span class="activity-action__count"><%= activity.likes_count %></span>
+    <% end %>
+    
+    <%= link_to comment_activity_path(activity), class: "activity-action" do %>
+      <i class="far fa-comment"></i>
+      <span class="activity-action__count"><%= activity.comments_count %></span>
+    <% end %>
+  </div>
+
+  <div class="activity-actions__secondary">
+    <% if current_user.can_edit?(activity) %>
+      <%= link_to edit_activity_path(activity), class: "activity-action" do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+
+      <%= link_to activity_path(activity), 
+          method: :delete, 
+          data: { confirm: 'Are you sure?' },
+          class: "activity-action activity-action--danger" do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>

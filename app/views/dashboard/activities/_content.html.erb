@@ -1,0 +1,10 @@
+<div class="activity-content">
+  <% case activity.activity_type %>
+  <% when 'comment' %>
+    <%= render 'activities/types/comment', activity: activity %>
+  <% when 'project_update' %>
+    <%= render 'activities/types/project_update', activity: activity %>
+  <% when 'milestone' %>
+    <%= render 'activities/types/milestone', activity: activity %>
+  <% end %>
+</div>

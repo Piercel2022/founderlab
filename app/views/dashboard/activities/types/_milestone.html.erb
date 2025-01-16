@@ -1,0 +1,16 @@
+<div class="activity-milestone">
+  <div class="activity-milestone__icon">
+    <i class="fas fa-flag"></i>
+  </div>
+  <div class="activity-milestone__content">
+    <div class="activity-milestone__title">
+      <%= activity.milestone.title %>
+    </div>
+    <div class="activity-milestone__description">
+      <%= simple_format activity.milestone.description %>
+    </div>
+    <div class="activity-milestone__meta">
+      Due: <%= activity.milestone.due_date.strftime("%B %d, %Y") %>
+    </div>
+  </div>
+</div>

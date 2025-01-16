@@ -1,0 +1,20 @@
+<div class="activity-project-update">
+  <div class="activity-project-update__title">
+    <%= activity.project.name %> Update
+  </div>
+  <div class="activity-project-update__content">
+    <%= simple_format activity.content %>
+  </div>
+  <% if activity.status_changed? %>
+    <div class="activity-project-update__status">
+      Status changed from 
+      <span class="status status--<%= activity.previous_status %>">
+        <%= activity.previous_status %>
+      </span>
+      to
+      <span class="status status--<%= activity.current_status %>">
+        <%= activity.current_status %>
+      </span>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+<div class="activity-header">
+  <div class="activity-header__avatar">
+    <%= image_tag activity.user.avatar_url, class: "avatar" if activity.user.avatar_url.present? %>
+  </div>
+  <div class="activity-header__info">
+    <span class="activity-header__user"><%= activity.user.full_name %></span>
+    <span class="activity-header__timestamp">
+      <%= time_ago_in_words(activity.created_at) %> ago
+    </span>
+  </div>
+</div>
