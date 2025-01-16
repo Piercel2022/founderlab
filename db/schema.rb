@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_16_153326) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_16_171933) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "activity_type"
+    t.text "content"
+    t.string "trackable_type", null: false
+    t.bigint "trackable_id", null: false
+    t.integer "likes_count"
+    t.integer "comments_count"
+    t.boolean "status_changed"
+    t.string "previous_status"
+    t.string "current_status"
+    t.jsonb "metadata"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable"
+    t.index ["user_id"], name: "index_activities_on_user_id"
+  end
 
   create_table "analytics_reports", force: :cascade do |t|
     t.bigint "project_id", null: false
@@ -290,6 +308,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_16_153326) do
     t.index ["role"], name: "index_users_on_role"
   end
 
+  add_foreign_key "activities", "users"
   add_foreign_key "analytics_reports", "projects"
   add_foreign_key "dashboard_metrics", "users"
   add_foreign_key "dashboard_widgets", "users"
