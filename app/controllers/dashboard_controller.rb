@@ -20,7 +20,8 @@ class DashboardController < ApplicationController
       {
         total_logins: current_user.total_logins,
         recent_logins: current_user.login_histories.last(5),
-        metrics: fetch_filtered_metrics
+       # metrics: fetch_filtered_metrics
+        metrics: current_user.metrics.order(date: :desc).limit(2)
       }
     end
     
