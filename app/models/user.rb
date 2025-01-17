@@ -40,7 +40,7 @@ class User < ApplicationRecord
   has_secure_password
 
   # 2FA Implementation
-  has_one_time_password
+  has_secure_password
   validates :otp_secret, presence: true, if: :two_factor_enabled?
 
   # Callbacks
@@ -57,8 +57,8 @@ class User < ApplicationRecord
   scope :security_risk, -> { where('failed_attempts > ?', 3) }
 
   # Rate Limiting
-  include RateLimiter
-  rate_limit :login_attempts, limit: 5, period: 20.minutes
+ # include RateLimiter
+ # rate_limit :login_attempts, limit: 5, period: 20.minutes
 
   # Class Methods
   def self.from_omniauth(auth)
