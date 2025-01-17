@@ -93,9 +93,10 @@ end
 
 gem "devise", "~> 4.9"
 
-gem "rolify"                    # For role management
 gem "attr_encrypted"            # For encrypting sensitive data
 gem "active_storage_validations" # For avatar validations
 gem "rotp"                      # For 2FA
 gem "devise-security"           # For additional security features
 gem "omniauth", "~> 2.1"
+
+gem "rolify", "~> 6.0"          # For role management
