@@ -48,16 +48,14 @@ gem "kamal", require: false
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
-gem 'font-awesome-sass', '~> 6.1.0'
+gem "font-awesome-sass", "~> 6.1.0"
 
-gem 'active_storage_validations'
 
-gem "devise" # Authentication
 gem "pundit" # Authorization
 gem "sidekiq" # Background jobs
 gem "stripe" # Payment processing
 gem "aws-sdk-s3" # File storage
-#gem "elasticsearch-model" # Search functionality
+gem "elasticsearch-model" # Search functionality
 gem "paper_trail" # Version control
 gem "noticed" # Notifications
 gem "pagy" # Pagination
@@ -92,3 +90,12 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise", "~> 4.9"
+
+gem "rolify"                    # For role management
+gem "attr_encrypted"            # For encrypting sensitive data
+gem "active_storage_validations" # For avatar validations
+gem "rotp"                      # For 2FA
+gem "devise-security"           # For additional security features
+gem "omniauth", "~> 2.1"
