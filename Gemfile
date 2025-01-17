@@ -92,7 +92,6 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
-
 gem "attr_encrypted"            # For encrypting sensitive data
 gem "active_storage_validations" # For avatar validations
 gem "rotp"                      # For 2FA
