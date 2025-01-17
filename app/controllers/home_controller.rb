@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   layout 'dashboard'
 
   def index
-    redirect_to dashboard_url(id: current_user.id) if user_signed_in?
+   
   
    @featured_projects = Project.featured.limit(3)
    @upcoming_events = Event.upcoming.limit(4)
@@ -41,5 +41,8 @@ class HomeController < ApplicationController
     # Latest activity
    @recent_activities = Activity.includes(:user, :trackable).order(created_at: :desc).limit(10)
    @successful_exits = Project.successful_exits.count
+
+   redirect_to dashboard_url(id: current_user.id) if user_signed_in?
+   
   end
 end
