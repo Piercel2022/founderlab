@@ -1,12 +1,13 @@
 
   # config/routes.rb
   Rails.application.routes.draw do
+   
    # get "dashboard/index"
    # get "dashboard/show"
    # get "dashboard/analytics"
    # get "dashboard/settings"
    root 'home#index'
-  
+   devise_for :users
     #authenticate :user do
      # get 'dashboard', to: 'dashboard#index'
       # Add other authenticated routes
@@ -34,21 +35,7 @@
       get :about, to: 'home#about'
       get :contact, to: 'home#contact'
     end
-
-    
-
-  # Authentication routes
-  # Devise routes with custom controllers and path names
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    passwords: 'users/passwords',
-    confirmations: 'users/confirmations'
-  }, path_names: {
-    sign_in: 'login',
-    sign_out: 'logout',
-    sign_up: 'register'
-  }
+ 
 
   authenticate :user do
     # Dashboard routes
