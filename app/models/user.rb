@@ -1,9 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules plus OAuth
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :confirmable, :trackable, :lockable,
-         :omniauthable, omniauth_providers: [:google, :github, :linkedin]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable, :trackable, :lockable,
+  :omniauthable, omniauth_providers: [:google, :github, :linkedin]
 
   # Roles using rolify
   rolify
