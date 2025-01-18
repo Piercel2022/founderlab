@@ -8,6 +8,7 @@ class User < ApplicationRecord
   after_create :assign_default_role
 
   # Associations
+  has_many :metrics
   has_one :profile, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_many :comments, dependent: :destroy
