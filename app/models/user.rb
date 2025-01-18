@@ -34,7 +34,7 @@ class User < ApplicationRecord
   
   # Security configurations
   attr_encrypted :auth_token, key: ENV['ENCRYPTION_KEY']
-  has_secure_token :remember_token
+  #has_secure_token :remember_token
   has_secure_password
 
   # 2FA Implementation
