@@ -121,7 +121,7 @@ class User < ApplicationRecord
   def password_complexity
     return if password.blank?
     unless password.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)
-      errors.add :password, 'must include at least one lowercase letter, one uppercase letter, one digit, one special character, and be at least 8 characters long'
+      errors.add :password, "must include at least one lowercase letter, one uppercase letter, one digit, one special character, and be at least 8 characters long"
     end
   end
 
@@ -130,13 +130,13 @@ class User < ApplicationRecord
     
     previous_passwords = old_passwords.order(created_at: :desc).limit(5).pluck(:password_digest)
     if previous_passwords.any? { |old_password| BCrypt::Password.new(old_password) == password }
-      errors.add(:password, 'has been used previously. Please choose a different password.')
+      errors.add(:password, "has been used previously. Please choose a different password.")
     end
   end
 
   def avatar_content_type
     if avatar.attached? && !avatar.content_type.in?(%w[image/jpeg image/png image/gif])
-      errors.add(:avatar, 'must be a JPEG, PNG, or GIF')
+      errors.add(:avatar, "must be a JPEG, PNG, or GIF")
     end
   end
 
