@@ -7,12 +7,7 @@ class Investment < ApplicationRecord
   validates :investment_type, presence: true
   validates :investor_name, presence: true
   validates :investment_round, presence: true
-  validates :equity_percentage, 
-            numericality: { 
-              greater_than_or_equal_to: 0,
-              less_than_or_equal_to: 100
-            },
-            allow_nil: true
+  validates :equity_percentage, numericality: { greater_than_or_equal_to: 0,  less_than_or_equal_to: 100 }, allow_nil: true
 
   # Enums
   #enum investment_type: {
