@@ -42,9 +42,10 @@ REQUIRED SECTIONS:
 
 # 📖 Founder-lab <a name="about-project"></a>
 
-
-
 **Founder-lab** :  A dynamic platform dedicated to empowering entrepreneurs to build and scale successful businesses through hands-on experimentation and proven methodologies.
+# 📖 [Founder-lab] <a name="about-project"></a>
+
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -70,10 +71,9 @@ REQUIRED SECTIONS:
 
 ### Key Features <a name="key-features"></a>
 
-
-- [ ] **User Authentication System**
-- [ ] **Project Management Dashboard**
-- [ ] **Resource Hub**
+- **[User Authentication System]**
+- **[Project Management Dashboard]**
+- **[Resource Hub]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -98,7 +98,7 @@ To get a local copy up and running, follow these steps.
 
 
 ```sh
-  gem rails install
+gem rails install
 ```
  
 
