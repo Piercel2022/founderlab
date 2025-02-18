@@ -1,0 +1,17 @@
+
+.btn {
+     
+  @apply inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2;
+    
+ &-primary {
+     @apply bg-primary-blue text-white hover:bg-primary-blue/90;
+}
+    
+ &-secondary {
+      @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+    
+&-full {
+     @apply w-full;
+    }
+}

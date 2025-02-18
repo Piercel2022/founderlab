@@ -1,0 +1,18 @@
+<div class="event-card">
+  <div class="event-date">
+    <span class="day"><%= event.date.strftime('%d') %></span>
+    <span class="month"><%= event.date.strftime('%b') %></span>
+  </div>
+  <div class="event-content">
+    <h3><%= event.title %></h3>
+    <p class="event-description"><%= truncate(event.description, length: 100) %></p>
+    <div class="event-meta">
+      <span class="location"><i class="fas fa-map-marker-alt"></i> <%= event.location %></span>
+      <span class="time"><i class="far fa-clock"></i> <%= event.date.strftime('%I:%M %p') %></span>
+    </div>
+    <div class="event-footer">
+      <span class="category"><%= event.category %></span>
+      <%= link_to "Register", register_event_path(event), class: "event-register-link" %>
+    </div>
+  </div>
+</div>

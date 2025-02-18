@@ -1,0 +1,14 @@
+<div class="activity-comment">
+  <div class="activity-comment__text">
+    <%= simple_format activity.content %>
+  </div>
+  <% if activity.attachments.any? %>
+    <div class="activity-comment__attachments">
+      <% activity.attachments.each do |attachment| %>
+        <div class="attachment">
+          <%= link_to attachment.filename, attachment.url, target: "_blank" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

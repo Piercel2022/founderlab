@@ -1,0 +1,80 @@
+<!-- app/views/dashboard/_metrics.html.erb -->
+<div class="metrics-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+  <div class="metrics-card">
+    <div class="metrics-card__header">
+      <div class="metrics-card__icon metrics-card__icon--success">
+        <i class="icon-projects"></i>
+      </div>
+      <div>
+        <h3 class="metrics-card__title">Total Projects</h3>
+        <p class="metrics-card__value"><%= @total_projects %></p>
+        <% if @projects_growth.positive? %>
+          <div class="metrics-card__trend metrics-card__trend--up">
+            <i class="icon-trend-up"></i>
+            <%= number_to_percentage(@projects_growth, precision: 1) %>
+          </div>
+        <% else %>
+          <div class="metrics-card__trend metrics-card__trend--down">
+            <i class="icon-trend-down"></i>
+            <%= number_to_percentage(@projects_growth.abs, precision: 1) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="metrics-card">
+    <div class="metrics-card__header">
+      <div class="metrics-card__icon metrics-card__icon--info">
+        <i class="icon-investment"></i>
+      </div>
+      <div>
+        <h3 class="metrics-card__title">Total Investments</h3>
+        <p class="metrics-card__value">
+          <%= number_to_currency(@total_investments, precision: 0) %>
+        </p>
+        <% if @investments_growth.positive? %>
+          <div class="metrics-card__trend metrics-card__trend--up">
+            <i class="icon-trend-up"></i>
+            <%= number_to_percentage(@investments_growth, precision: 1) %>
+          </div>
+        <% else %>
+          <div class="metrics-card__trend metrics-card__trend--down">
+            <i class="icon-trend-down"></i>
+            <%= number_to_percentage(@investments_growth.abs, precision: 1) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="metrics-card">
+    <div class="metrics-card__header">
+      <div class="metrics-card__icon metrics-card__icon--warning">
+        <i class="icon-tasks"></i>
+      </div>
+      <div>
+        <h3 class="metrics-card__title">Pending Tasks</h3>
+        <p class="metrics-card__value"><%= @pending_tasks %></p>
+        <div class="metrics-card__subtitle">
+          Due this week: <%= @tasks_due_this_week %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="metrics-card">
+    <div class="metrics-card__header">
+      <div class="metrics-card__icon metrics-card__icon--primary">
+        <i class="icon-calendar"></i>
+      </div>
+      <div>
+        <h3 class="metrics-card__title">Upcoming Events</h3>
+        <p class="metrics-card__value"><%= @upcoming_events.count %></p>
+        <div class="metrics-card__subtitle">
+          Next: <%= @upcoming_events.first&.starts_at&.strftime("%b %d") || "No events" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

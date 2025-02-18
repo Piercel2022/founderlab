@@ -1,0 +1,21 @@
+<div class="mentor-card">
+  <div class="mentor-avatar">
+    <%= image_tag mentor.avatar.present? ? mentor.avatar : 'default_avatar.png' %>
+  </div>
+  <div class="mentor-content">
+    <h3><%= mentor.name %></h3>
+    <p class="mentor-title"><%= mentor.title %></p>
+    <div class="mentor-expertise">
+      <% mentor.expertise.take(3).each do |expertise| %>
+        <span class="expertise-tag"><%= expertise %></span>
+      <% end %>
+    </div>
+    <div class="mentor-stats">
+      <div class="rating">
+        <%= render 'shared/star_rating', rating: mentor.rating %>
+      </div>
+      <span class="sessions-count"><%= mentor.sessions_count %> sessions</span>
+    </div>
+    <%= link_to "Book Session", new_mentor_meeting_path(mentor), class: "mentor-link" %>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="investment-create-container">
+  <h2>Investment Created Successfully</h2>
+  
+  <div class="investment-details">
+    <p>Your investment has been successfully recorded.</p>
+    
+    <div class="action-buttons">
+      <%= link_to "View Investment", investment_path(@investment), class: "btn btn-primary" %>
+      <%= link_to "Back to All Investments", investments_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>

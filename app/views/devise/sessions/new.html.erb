@@ -1,0 +1,51 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h2 class="auth-title">Sign in to FounderLab</h2>
+      <p class="auth-subtitle">Manage your startup portfolio</p>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.label :email, class: "form-label" %>
+        <%= f.email_field :email, autocomplete: "email", class: "form-input" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, class: "form-label" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-input" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="form-group flex items-center">
+          <%= f.check_box :remember_me, class: "h-4 w-4 text-primary-blue rounded border-gray-300" %>
+          <%= f.label :remember_me, class: "ml-2 text-sm text-gray-700" %>
+        </div>
+      <% end %>
+
+      <%= f.submit "Sign in", class: "btn btn-primary btn-full" %>
+    <% end %>
+
+    <div class="auth-divider">
+      <span>Or continue with</span>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3 mt-6">
+      <button class="btn btn-secondary">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24"><!-- Add Google icon path --></svg>
+        Google
+      </button>
+      <button class="btn btn-secondary">
+        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24"><!-- Add GitHub icon path --></svg>
+        GitHub
+      </button>
+    </div>
+
+    <div class="mt-6 text-center text-sm">
+      <p class="text-gray-600">
+        Don't have an account?
+        <%= link_to "Sign up", new_registration_path(resource_name), class: "text-primary-blue hover:text-primary-blue/90" %>
+      </p>
+    </div>
+  </div>
+</div>

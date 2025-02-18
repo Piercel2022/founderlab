@@ -1,0 +1,24 @@
+<div class="project-card">
+  <div class="project-image">
+    <%= image_tag project.image.present? ? project.image : 'default_project.png' %>
+  </div>
+  <div class="project-content">
+    <h3><%= project.name %></h3>
+    <p class="project-description"><%= truncate(project.description, length: 150) %></p>
+    <div class="project-meta">
+      <span class="industry"><%= project.industry %></span>
+      <span class="stage"><%= project.stage %></span>
+    </div>
+    <div class="project-stats">
+      <div class="stat">
+        <span class="label">Investment</span>
+        <span class="value">$<%= number_with_delimiter(project.total_investment) %></span>
+      </div>
+      <div class="stat">
+        <span class="label">Team</span>
+        <span class="value"><%= project.team_size %></span>
+      </div>
+    </div>
+    <%= link_to "Learn More", project_path(project), class: "project-link" %>
+  </div>
+</div>

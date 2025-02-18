@@ -1,0 +1,16 @@
+<!-- app/views/dashboard/_recent_activity.html.erb -->
+<div class="activity-feed">
+  <% @activities.each do |activity| %>
+    <div class="activity-feed__item">
+      <div class="activity-feed__header">
+        <%= render "activities/header", activity: activity %>
+      </div>
+      <div class="activity-feed__content">
+        <%= render "activities/content", activity: activity %>
+      </div>
+      <div class="activity-feed__actions">
+        <%= render "activities/actions", activity: activity %>
+      </div>
+    </div>
+  <% end %>
+</div>

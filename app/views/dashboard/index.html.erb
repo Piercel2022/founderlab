@@ -1,0 +1,11 @@
+<% content_for :page_header do %>
+  <h1 class="page-title">Dashboard</h1>
+  <div class="page-actions">
+    <%= link_to "New Project", new_project_path, class: "button button--primary" %>
+  </div>
+<% end %>
+<div class="dashboard-grid">
+  <%= render "dashboard/metrics" %>
+  <%= render "dashboard/recent_activity" %>
+  <%= render "dashboard/projects" %>
+</div>

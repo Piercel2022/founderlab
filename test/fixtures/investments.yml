@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  startup: one
+  amount: 9.99
+  investment_date: 2025-01-10
+  investment_type: MyString
+  investor_name: MyString
+  investment_round: MyString
+  equity_percentage: 9.99
+  valuation_at_investment: 9.99
+  investment_terms: MyText
+  board_seats: 1
+  due_diligence_status: MyString
+  documents_url: MyString
+  lead_investor: false
+  follow_on_investment: false
+  notes: MyText
+  status: MyString
+
+two:
+  startup: two
+  amount: 9.99
+  investment_date: 2025-01-10
+  investment_type: MyString
+  investor_name: MyString
+  investment_round: MyString
+  equity_percentage: 9.99
+  valuation_at_investment: 9.99
+  investment_terms: MyText
+  board_seats: 1
+  due_diligence_status: MyString
+  documents_url: MyString
+  lead_investor: false
+  follow_on_investment: false
+  notes: MyText
+  status: MyString

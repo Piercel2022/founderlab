@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  metrics: 
+  insights: MyText
+  recommendations: MyText
+  date: 2025-01-07
+  report_type: MyString
+
+two:
+  project: two
+  metrics: 
+  insights: MyText
+  recommendations: MyText
+  date: 2025-01-07
+  report_type: MyString

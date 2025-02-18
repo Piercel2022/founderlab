@@ -1,0 +1,81 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to FounderLab</h1>
+      <h2>Build, Experiment, Succeed</h2>
+      <p>Your laboratory for creating successful businesses</p>
+      <%= link_to "Get Started", new_user_registration_path, class: "cta-button" %>
+    </div>
+  </section>
+
+  <!-- Statistics Dashboard -->
+  <section class="statistics-section">
+    <div class="stat-card">
+      <h3><%= @total_founders %></h3>
+      <p>Active Founders</p>
+    </div>
+    <div class="stat-card">
+      <h3><%= @total_projects %></h3>
+      <p>Active Projects</p>
+    </div>
+    <div class="stat-card">
+      <h3>$<%= number_with_delimiter(@total_investments) %></h3>
+      <p>Total Investments</p>
+    </div>
+    <div class="stat-card">
+      <h3><%= @successful_exits %></h3>
+      <p>Successful Exits</p>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      <% @featured_projects.each do |project| %>
+       <%= render partial: 'projects/project_card', collection: @featured_projects, as: :project %>
+      <% end %>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="upcoming-events">
+    <h2>Upcoming Events</h2>
+    <div class="events-grid">
+      <% @upcoming_events.each do |event| %>
+        <%= render 'events/event_card', event: event %>
+      <% end %>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section class="resources-section">
+    <h2>Latest Resources</h2>
+    <div class="resources-grid">
+      <% @latest_resources.each do |resource| %>
+        <%= render 'resources/resource_card', resource: resource %>
+      <% end %>
+    </div>
+  </section>
+
+  <!-- Success Stories -->
+  <section class="success-stories">
+    <h2>Success Stories</h2>
+    <div class="stories-grid">
+      <% @success_stories.each do |story| %>
+        <%= render 'success_stories/story_card', story: story %>
+      <% end %>
+    </div>
+  </section>
+
+  <!-- Mentors Section -->
+  <section class="mentors-section">
+    <h2>Featured Mentors</h2>
+    <div class="mentors-grid">
+      <% @active_mentors.each do |mentor| %>
+        <%= render 'mentors/mentor_card', mentor: mentor %>
+      <% end %>
+    </div>
+  </section>
+</div>

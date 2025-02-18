@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  founded_date: 2025-01-10
+  website: MyString
+  industry: MyString
+  company_size: 1
+  stage: MyString
+  total_funding: 9.99
+  headquarters: MyString
+  founders: MyString
+  logo_url: MyString
+  status: MyString
+  pitch_deck_url: MyString
+  valuation: 9.99
+  revenue: 9.99
+  employee_count: 1
+  business_model: MyString
+  target_market: MyString
+  slug: MyString
+
+two:
+  name: MyString
+  description: MyText
+  founded_date: 2025-01-10
+  website: MyString
+  industry: MyString
+  company_size: 1
+  stage: MyString
+  total_funding: 9.99
+  headquarters: MyString
+  founders: MyString
+  logo_url: MyString
+  status: MyString
+  pitch_deck_url: MyString
+  valuation: 9.99
+  revenue: 9.99
+  employee_count: 1
+  business_model: MyString
+  target_market: MyString
+  slug: MyString

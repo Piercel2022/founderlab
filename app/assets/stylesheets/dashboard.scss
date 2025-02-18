@@ -1,0 +1,110 @@
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .metric-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    
+    .metric-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2d3748;
+        margin: 0;
+      }
+      
+      .date {
+        color: #718096;
+        font-size: 0.9rem;
+      }
+    }
+    
+    .metric-content {
+      .metric-item {
+        margin-bottom: 1.25rem;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        .label {
+          display: block;
+          color: #718096;
+          font-size: 0.875rem;
+          margin-bottom: 0.25rem;
+        }
+        
+        .value {
+          display: block;
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #2d3748;
+        }
+        
+        .subtext {
+          display: block;
+          color: #718096;
+          font-size: 0.875rem;
+          margin-top: 0.25rem;
+        }
+        
+        .growth {
+          display: inline-block;
+          padding: 0.25rem 0.5rem;
+          border-radius: 4px;
+          font-size: 0.875rem;
+          margin-left: 0.5rem;
+          
+          &.positive {
+            background-color: #c6f6d5;
+            color: #2f855a;
+          }
+          
+          &.negative {
+            background-color: #fed7d7;
+            color: #c53030;
+          }
+        }
+      }
+      
+      .activity-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        
+        .activity-item {
+          text-align: center;
+          
+          .count {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+          }
+          
+          .label {
+            display: block;
+            font-size: 0.75rem;
+            color: #718096;
+            margin-top: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+  
+  .warning {
+    color: #c53030;
+  }

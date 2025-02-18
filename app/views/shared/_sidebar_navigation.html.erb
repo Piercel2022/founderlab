@@ -1,0 +1,25 @@
+<% if current_user.founder? %>
+  <%= link_to dashboard_path, class: "group flex items-center px-2 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-50 hover:text-gray-900" do %>
+    <span class="material-icons mr-3 text-gray-400">dashboard</span>
+    Dashboard
+  <% end %>
+  
+  <%= link_to projects_path, class: "mt-1 group flex items-center px-2 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-50 hover:text-gray-900" do %>
+    <span class="material-icons mr-3 text-gray-400">work</span>
+    My Projects
+  <% end %>
+  
+  <%= link_to mentors_path, class: "mt-1 group flex items-center px-2 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-50 hover:text-gray-900" do %>
+    <span class="material-icons mr-3 text-gray-400">people</span>
+    Mentors
+  <% end %>
+  
+  <%= link_to resources_path, class: "mt-1 group flex items-center px-2 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-50 hover:text-gray-900" do %>
+    <span class="material-icons mr-3 text-gray-400">library_books</span>
+    Resources
+  <% end %>
+<% elsif current_user.investor? %>
+  <!-- Investor navigation items -->
+<% elsif current_user.admin? %>
+  <!-- Admin navigation items -->
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  market_size: 1
+  competitors: MyText
+  target_audience: MyText
+  pain_points: MyText
+  opportunities: MyText
+
+two:
+  project: two
+  market_size: 1
+  competitors: MyText
+  target_audience: MyText
+  pain_points: MyText
+  opportunities: MyText

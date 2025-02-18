@@ -1,0 +1,36 @@
+
+@use "../../config/variables";
+
+.home-container {
+    max-width: $large-desktop;
+    margin: 0 auto;
+    padding: $container-padding;
+  }
+  
+  .hero-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), image-url("hero-bg.jpg");
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px $container-padding;
+    border-radius: 8px;
+    margin-bottom: $spacing-unit * 5;
+  }
+  
+  .statistics-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 5;
+  }
+  
+  section {
+    margin-bottom: $spacing-unit * 5;
+  
+    h2 {
+      font-size: 2rem;
+      margin-bottom: $spacing-unit * 3;
+      color: $text-color;
+    }
+  }
+  

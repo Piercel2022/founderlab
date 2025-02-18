@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <title><%= content_for(:title) || "Founderlab" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+   <%= stylesheet_link_tag "application", media: "all" %>
+   <%= javascript_include_tag "application" %>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <%= render 'shared/navigation' %>
+      <div class="flex">
+        <%= render 'shared/sidebar' %>
+        <div class="flex-1 p-8 sm:ml-64 mt-14">
+          <%= render 'shared/flash' %>
+          <%= yield %>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+      </div>
+    <% else %>
+      <div class="min-h-screen">
+        <%= render 'shared/flash' %>
+        <%= yield %>
+      </div>
+    <% end %>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  </body>
+</html>

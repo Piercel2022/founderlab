@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  activity_type: MyString
+  content: MyText
+  trackable: one
+  trackable_type: Trackable
+  likes_count: 1
+  comments_count: 1
+  status_changed: false
+  previous_status: MyString
+  current_status: MyString
+  metadata: 
+
+two:
+  user: two
+  activity_type: MyString
+  content: MyText
+  trackable: two
+  trackable_type: Trackable
+  likes_count: 1
+  comments_count: 1
+  status_changed: false
+  previous_status: MyString
+  current_status: MyString
+  metadata: 

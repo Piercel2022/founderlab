@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+ @use "tailwindcss/base";
+ @use "tailwindcss/components";
+ @use "tailwindcss/utilities";
+
+ @use "../config/variables";
+ @use "../config/mixins";
+// 1. Configuration and helpers
+//@import "abstracts/variables";
+.//@import "abstracts/functions";
+//@import "abstracts/mixins";
+// Base styles
+ @use "./base/reset";
+ @use "./base/typography";
+ @use "./base/animations";
+ @use "./base/layout";
+
+ // components
+ @use "./components/cards";
+ @use "./components/home";
+ @use "./components/buttons";
+ @use "./components/forms";
+ @use "./components/alerts";
+ 
+
+ // Pages
+ @use "./pages/auth";
+ @use "./pages/investments";
+ @use "./pages/success_stories";
+ @use "./pages/dashboard";
+ @use "./pages/profile";
+ @use "./pages/projects";
+ @use "./pages/resources";
+ // Modules
+ @use "./modules/signup";
+ @use "./modules/login";
+
+
+// 2. Vendors
+ @use "./vendors/normalize";
+
+// 3. Base stuff
+//@use "base/base";
+@use"./base/fonts";
+@use "./base/typography";
+@use "./base/helpers";
+
+// 4. Layout-related sections
+@use "./layout/header";
+@use "./layout/footer";
+@use "./layout/sidebar";
+@use "./layout/grid";
+@use "./layout/navigation";
+
+// 5. Components
+@use "./components/button";
+@use "./components/card";
+@use "./components/dropdown";
+@use "./components/form";
+@use "./components/alert";
+@use "./components/badge";
+@use "./components/modal";
+@use "./components/table";
+
+@use "dashboard.scss"
+
+// 7. Themes
+@use "./themes/default";
+@use "./themes/dark";
