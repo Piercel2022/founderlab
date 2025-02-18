@@ -1,4 +1,5 @@
 class MetricsController < ApplicationController
+  
   before_action :authenticate_user!
   before_action :set_startup
   before_action :set_metric, only: [:show, :edit, :update, :destroy]

@@ -6,7 +6,6 @@ class CreateMentors < ActiveRecord::Migration[8.0]
       t.string :availability
       t.decimal :rating
       t.text :bio
-
       t.timestamps
     end
   end

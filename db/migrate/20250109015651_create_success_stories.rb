@@ -1,4 +1,5 @@
 class CreateSuccessStories < ActiveRecord::Migration[8.0]
+  
   def change
     create_table :success_stories do |t|
       t.string :title

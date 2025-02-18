@@ -12,6 +12,7 @@ class DashboardChannel < ApplicationCable::Channel
       update_layout(data['layout'])
     end
   end
+  
 
   private
 

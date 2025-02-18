@@ -1,4 +1,5 @@
 module LoginTracking
+  
     extend ActiveSupport::Concern
   
     included do

@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   
   validates :content, presence: true
   
-  enum status: { active: 0, flagged: 1, removed: 2 }
+  # enum status: { active: 0, flagged: 1, removed: 2 }
   
   scope :active_posts, -> { where(status: :active) }
 end

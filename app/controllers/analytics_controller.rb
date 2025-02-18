@@ -1,4 +1,5 @@
 class AnalyticsController < ApplicationController
+  
   def index
   end
 

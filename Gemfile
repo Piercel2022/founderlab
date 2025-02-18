@@ -7,7 +7,7 @@ gem "propshaft"
 gem "cssbundling-rails"
 gem "jsbundling-rails"
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+# gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -99,3 +99,7 @@ gem "devise-security"           # For additional security features
 gem "omniauth", "~> 2.1"
 
 gem "rolify", "~> 6.0"          # For role management
+
+gem "pg", "~> 1.5"
+
+gem "fiddle", "~> 1.1"

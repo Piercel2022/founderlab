@@ -7,7 +7,6 @@ class CreateSubscriptions < ActiveRecord::Migration[8.0]
       t.date :end_date
       t.string :status
       t.decimal :amount, precision: 10, scale: 2
-
       t.timestamps
     end
   end

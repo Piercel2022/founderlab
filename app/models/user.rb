@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   # Roles using rolify
   rolify
-  after_create :assign_default_role
+  #after_create :assign_default_role
 
   # Associations
   has_many :metrics
@@ -28,23 +28,20 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 30 }, 
   format: { with: /\A[a-zA-Z0-9_]+\z/, message: "only allows letters, numbers, and underscores" }
   validate :password_complexity
-  validate :prevent_password_reuse
+  #validate :prevent_password_reuse
   validate :avatar_content_type
   
   # Security configurations
   attr_encrypted :auth_token, key: ENV['ENCRYPTION_KEY']
   #has_secure_token :remember_token
-  has_secure_password
-
-  # 2FA Implementation
-  has_secure_password
-  validates :otp_secret, presence: true, if: :two_factor_enabled?
+  
+  #validates :otp_secret, presence: true, if: :two_factor_enabled?
 
   # Callbacks
-  after_create :create_profile
-  after_create :send_welcome_email
-  before_save :ensure_security_questions_answered
-  after_save :clear_sensitive_data
+  #after_create :create_profile
+  #after_create :send_welcome_email
+  #before_save :ensure_security_questions_answered
+  #after_save :clear_sensitive_data
   
   # Scopes
   scope :active, -> { where(active: true) }
@@ -87,9 +84,9 @@ class User < ApplicationRecord
   end
 
   # Role Methods
-  def assign_default_role
-    self.add_role(:user) if self.roles.blank?
-  end
+ # def assign_default_role
+ #  self.add_role(:user) if self.roles.blank?
+ # end
 
   def admin?
     has_role?(:admin)
@@ -126,14 +123,14 @@ class User < ApplicationRecord
     end
   end
 
-  def prevent_password_reuse
-    return if password.blank? || password_changed? == false
+  #def prevent_password_reuse
+  #  return if password.blank? || password_changed? == false
     
-    previous_passwords = old_passwords.order(created_at: :desc).limit(5).pluck(:password_digest)
-    if previous_passwords.any? { |old_password| BCrypt::Password.new(old_password) == password }
-      errors.add(:password, "has been used previously. Please choose a different password.")
-    end
-  end
+  #  previous_passwords = old_passwords.order(created_at: :desc).limit(5).pluck(:password_digest)
+  #  if previous_passwords.any? { |old_password| BCrypt::Password.new(old_password) == password }
+  #    errors.add(:password, "has been used previously. Please choose a different password.")
+   # end
+  #end
 
   def avatar_content_type
     if avatar.attached? && !avatar.content_type.in?(%w[image/jpeg image/png image/gif])
@@ -141,14 +138,14 @@ class User < ApplicationRecord
     end
   end
 
-  def ensure_security_questions_answered
-    return unless active? && security_questions.blank?
-    self.security_questions = generate_security_questions
-  end
+  #def ensure_security_questions_answered
+  #  return unless active? && security_questions.blank?
+  #  self.security_questions = generate_security_questions
+  #end
 
-  def clear_sensitive_data
-    self.temp_auth_token = nil
-  end
+  #def clear_sensitive_data
+  #  self.temp_auth_token = nil
+  #end
 
   def update_oauth_credentials(auth)
     oauth = oauth_providers.find_or_initialize_by(provider: auth.provider)

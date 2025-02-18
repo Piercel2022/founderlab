@@ -7,7 +7,6 @@ class CreateEvents < ActiveRecord::Migration[8.0]
       t.string :location
       t.integer :capacity
       t.string :category
-
       t.timestamps
     end
   end

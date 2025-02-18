@@ -1,4 +1,5 @@
 class CreateInvestments < ActiveRecord::Migration[8.0]
+  
   def change
     create_table :investments do |t|
       t.references :startup, null: false, foreign_key: true

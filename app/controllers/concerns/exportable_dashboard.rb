@@ -1,4 +1,5 @@
 module ExportableDashboard
+  
     extend ActiveSupport::Concern
   
     def export

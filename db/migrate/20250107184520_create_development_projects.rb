@@ -7,7 +7,6 @@ class CreateDevelopmentProjects < ActiveRecord::Migration[8.0]
       t.decimal :budget, precision: 10, scale: 2
       t.string :tech_stack
       t.text :milestones
-
       t.timestamps
     end
   end

@@ -12,14 +12,15 @@
 
 # Clear existing data
 puts "Cleaning database..."
-#[User, Project, Event, Resource, Mentor, Meeting, Forum, Post, Subscription].each(&:destroy_all)
+[User, Project, Event, Resource, Mentor, Meeting, Forum, Post, Subscription].each(&:destroy_all)
 
 # Create Admin
 puts "Creating admin user..."
 admin = User.create!(
   email: 'admin@founderlab.com',
-  password: 'password123',
+  password: 'Password@123',
   name: 'Admin User',
+  username: 'admin_user',
   role: 'admin',
   company: 'FounderLab',
   bio: 'Platform administrator'
@@ -30,7 +31,7 @@ puts "Creating users..."
 10.times do |i|
   User.create!(
     email: "founder#{i}@example.com",
-    password: 'password123',
+    password: 'Password@123',
     name: Faker::Name.name,
     role: 'founder',
     company: Faker::Company.name,
@@ -44,7 +45,7 @@ puts "Creating mentors..."
 mentors = 5.times.map do
   user = User.create!(
     email: Faker::Internet.email,
-    password: 'password123',
+    password: 'Password@123',
     name: Faker::Name.name,
     role: 'mentor',
     company: Faker::Company.name,

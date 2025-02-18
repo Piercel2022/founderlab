@@ -7,7 +7,6 @@ class CreateMeetings < ActiveRecord::Migration[8.0]
       t.string :status
       t.text :notes
       t.string :meeting_type
-
       t.timestamps
     end
   end

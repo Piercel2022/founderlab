@@ -7,7 +7,6 @@ class CreateMarketResearches < ActiveRecord::Migration[8.0]
       t.text :target_audience
       t.text :pain_points
       t.text :opportunities
-
       t.timestamps
     end
   end

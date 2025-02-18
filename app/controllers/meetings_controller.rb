@@ -1,13 +1,14 @@
 class MeetingsController < ApplicationController
+
   before_action :authenticate_user!
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
   def index
     @meetings = if current_user.mentor?
-                  current_user.mentor_meetings
-                else
-                  current_user.startup_meetings
-                end
+     current_user.mentor_meetings
+      else
+        current_user.startup_meetings
+      end
   end
 
   def create

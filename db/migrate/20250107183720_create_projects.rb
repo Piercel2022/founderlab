@@ -7,7 +7,6 @@ class CreateProjects < ActiveRecord::Migration[8.0]
       t.references :user, null: false, foreign_key: true
       t.string :target_market
       t.string :revenue_model
-
       t.timestamps
     end
   end

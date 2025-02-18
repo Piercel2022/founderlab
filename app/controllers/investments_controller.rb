@@ -1,4 +1,5 @@
 class InvestmentsController < ApplicationController
+  
   before_action :set_startup
   before_action :set_investment, only: [:show, :edit, :update, :destroy]
 

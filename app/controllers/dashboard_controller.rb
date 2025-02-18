@@ -1,5 +1,6 @@
 # app/controllers/dashboard_controller.rb
 class DashboardController < ApplicationController
+  
   include ExportableDashboard
   include RoleBasedDashboard
   include ActionCable::Channel::Broadcasting

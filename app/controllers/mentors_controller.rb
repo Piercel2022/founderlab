@@ -1,4 +1,5 @@
 class MentorsController < ApplicationController
+  
   before_action :authenticate_user!
   before_action :set_mentor, only: [:show, :edit, :update, :destroy]
 

@@ -7,7 +7,6 @@ class CreateAnalyticsReports < ActiveRecord::Migration[8.0]
       t.text :recommendations
       t.date :date
       t.string :report_type
-
       t.timestamps
     end
   end
