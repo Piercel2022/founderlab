@@ -46,7 +46,6 @@ REQUIRED SECTIONS:
 # 📖 [Founder-lab] <a name="about-project"></a>
 
 
-
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -71,9 +70,10 @@ REQUIRED SECTIONS:
 
 ### Key Features <a name="key-features"></a>
 
-- **[User Authentication System]**
-- **[Project Management Dashboard]**
-- **[Resource Hub]**
+- [ ] **User Authentication System**
+- [ ] **Project Management Dashboard**
+- [ ] **Resource Hub**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
