@@ -174,7 +174,7 @@ GEM
     ffi (1.17.1-x64-mingw-ucrt)
     ffi (1.17.1-x86_64-linux-gnu)
     fiddle (1.1.6)
-    font-awesome-sass (6.1.2)
+    font-awesome-sass (6.7.2)
       sassc (~> 2.0)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
@@ -476,7 +476,7 @@ DEPENDENCIES
   devise-security
   elasticsearch-model
   fiddle (~> 1.1)
-  font-awesome-sass (~> 6.1.0)
+  font-awesome-sass (~> 6.7.2)
   groupdate
   hotwire-rails
   importmap-rails
